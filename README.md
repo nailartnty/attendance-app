@@ -2,7 +2,7 @@
 
 An attendance app that allows the user to make an attendance report and see the history using face detection.
 
-## Getting Started
+## Features
 
 - Attendance Report
 - Attendance History
