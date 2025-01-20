@@ -5,6 +5,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return PopScope(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Container(),
+      ),
+    );
   }
 }

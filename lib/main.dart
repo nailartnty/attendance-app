@@ -1,3 +1,4 @@
+import 'package:attendance/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -33,9 +34,10 @@ class AttendanceApp extends StatelessWidget {
       theme: ThemeData(
         cardTheme: CardTheme(surfaceTintColor: Colors.white),
         dialogTheme: DialogTheme(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent)
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+        useMaterial3: true
       ),
-      
+      home: const HomeScreen(),
     );
   }
 }
