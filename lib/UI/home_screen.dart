@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
+    return PopScope( // untuk pop up yang muncul ketika keluar dari aplikasi
       canPop: false,
       // ignore: deprecated_member_use
       onPopInvoked: (didPop) {
@@ -23,40 +23,26 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  margin: const EdgeInsets.all(10),
-                  child: Expanded(
-                    child: InkWell(
-                      highlightColor: Colors.transparent,
-                      splashColor: Colors.transparent,
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const AttendanceScreen()));
-                      },
-                      // untuk menambahkan image
-                      child: const Column(
-                        children: [
-                          Image(
-                            image: AssetImage('assets/'),
-                            height: 100,
-                            width: 100,
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            "Attendance Report",
-                            style: TextStyle(
-                              fontSize: 20, 
-                              color: Colors.black, 
-                              fontWeight: FontWeight.bold
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                _buildMenuItem(
+                  context, 
+                  imagePath: "/assets/images/ic_atten.png", 
+                  label: "Attendance Report", 
+                  destination: const AttendanceScreen()
                 ),
-
-                SizedBox(height: 40),
-                
+                const SizedBox(height: 40), 
+                _buildMenuItem(
+                  context, 
+                  imagePath: "assets/images/ic_permition.png", 
+                  label: "Permission Report", 
+                  destination: const AttendanceScreen() 
+                ),               
+                const SizedBox(height: 40), 
+                _buildMenuItem(
+                  context, 
+                  imagePath: "assets/images/history.png", 
+                  label: "", 
+                  destination: const AttendanceScreen()
+                )               
               ],
             ),
           ),
@@ -64,9 +50,49 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildMenuItem(
+    /* ini adalah parameter yang harus diisi */
+    BuildContext context, {
+      required String imagePath,
+      required String label,
+      required Widget destination
+    }) {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      child: Expanded(
+        child: InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => destination));
+          },
+          // untuk menambahkan image
+          child: Column(
+            children: [
+              Image(
+                image: AssetImage(imagePath),
+                height: 100,
+                width: 100,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 20, 
+                  color: Colors.black, 
+                  fontWeight: FontWeight.bold
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
   // buat confirm exit
   Future<bool> _onWillPop(BuildContext context) async {
-    return (await showDialog(
+    return (await showDialog( // 
       barrierDismissible: false, // ini tuh buat dialog tidak bisa ditutup dengan sentuhan apapun
       context: context,
       builder: (context) =>
@@ -110,6 +136,8 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       )
-    ));
+      /* ini adalah default value ketika semua kode yang ada di 
+       blokalert Dialog tidak tereksekusi karena beberapa hal */
+    )) ?? false;
   }
 }

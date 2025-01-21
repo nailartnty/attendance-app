@@ -32,8 +32,8 @@ class AttendanceApp extends StatelessWidget {
     return MaterialApp(
       title: 'Attendance App',
       theme: ThemeData(
-        cardTheme: CardTheme(surfaceTintColor: Colors.white),
-        dialogTheme: DialogTheme(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
+        cardTheme: const CardTheme(surfaceTintColor: Colors.white),
+        dialogTheme: const DialogTheme(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true
       ),
