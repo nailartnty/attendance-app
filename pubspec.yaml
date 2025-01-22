@@ -35,15 +35,15 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  dotted_border: ^2.1.0
-  camera: ^0.11.0+2
-  geolocator: ^13.0.2
-  geocoding: ^3.0.0
-  intl: ^0.20.1
-  lottie: ^3.3.1
-  google_mlkit_face_detection: ^0.12.0
-  cloud_firestore: ^5.6.1
-  firebase_core: ^3.10.0
+  dotted_border: ^2.1.0 # untuk membuat border atau bingkai dengan pola garis putus-putus (dotted) pada widget di Flutter
+  camera: ^0.11.0+2 # untuk mengakses kamera perangkat
+  geolocator: ^13.0.2 # mendapatkan lokasi perangkat (latitude dan longitude), menghitung jarak antar lokasi, dan memantau perubahan lokasi
+  geocoding: ^3.0.0 # untuk melakukan geocoding dan reverse geocoding
+  intl: ^0.20.1 # untuk menangani internasionalisasi, seperti format tanggal, waktu, angka, dan teks sesuai dengan locale tertentu.
+  lottie: ^3.3.1 # Untuk menampilkan animasi berbasis Lottie (JSON)
+  google_mlkit_face_detection: ^0.12.0 # digunakan untuk mengenali wajah dalam gambar atau video
+  cloud_firestore: ^5.6.1 # untuk menghubungkan aplikasi dengan Google Cloud Firestore
+  firebase_core: ^3.10.0 # untuk menginisialisasi Firebase di aplikasi Flutter.
 
 dev_dependencies:
   flutter_test:
