@@ -23,26 +23,26 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildMenuItem(
-                  context, 
-                  imagePath: "/assets/images/ic_atten.png", 
-                  label: "Attendance Report", 
-                  destination: const AttendanceScreen()
-                ),
-                const SizedBox(height: 40), 
-                _buildMenuItem(
-                  context, 
-                  imagePath: "assets/images/ic_permition.png", 
-                  label: "Permission Report", 
-                  destination: const AttendanceScreen() 
-                ),               
-                const SizedBox(height: 40), 
-                _buildMenuItem(
-                  context, 
-                  imagePath: "assets/images/history.png", 
-                  label: "", 
-                  destination: const AttendanceScreen()
-                )               
+                // _buildMenuItem(
+                //   context, 
+                //   imagePath: "/assets/images/ic_atten.png", 
+                //   label: "Attendance Report", 
+                //   destination: const AttendanceScreen()
+                // ),
+                // const SizedBox(height: 40), 
+                // _buildMenuItem(
+                //   context, 
+                //   imagePath: "assets/images/ic_permition.png", 
+                //   label: "Permission Report", 
+                //   destination: const AttendanceScreen() 
+                // ),               
+                // const SizedBox(height: 40), 
+                // _buildMenuItem(
+                //   context, 
+                //   imagePath: "assets/images/history.png", 
+                //   label: "", 
+                //   destination: const AttendanceScreen()
+                // )               
               ],
             ),
           ),

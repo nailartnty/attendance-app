@@ -30,13 +30,13 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   void initState() {
     super.initState();
-    handleLocationPermission();
-    setDataTime();
-    setAttendStatus();
+    // handleLocationPermission();
+    // setDataTime();
+    // setAttendStatus();
     
     if (image != null) {
       isLoading = true;
-      getGeoLocationPosition();
+      // getGeoLocationPosition(); // untuk mendapatkan posisi titik koordinat perangkat
     }
   }
 
