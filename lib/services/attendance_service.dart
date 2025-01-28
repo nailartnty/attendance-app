@@ -1,3 +1,4 @@
+import 'package:attendance/UI/home_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +18,49 @@ Future<void> submitAttendaceReport(BuildContext context,
         'description': attendaceStatus,
         'time': timeStamp
       }
-    ).then((result) {
-      
+    ).then((result) { 
+      Navigator.of(context).pop();
+      try { // kalau dia udah berhasil ke submit
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Row(
+            children: [
+              Icon(Icons.check_circle_outline,
+                color: Colors.white,
+              ),
+              SizedBox(width: 10,),
+              Text(
+                'Attendance Report submitted successfully',
+                style: TextStyle(color: Colors.white),
+              )
+            ]
+          ),
+          backgroundColor: Colors.orangeAccent,
+          shape: StadiumBorder(),
+          behavior: SnackBarBehavior.floating,
+        ));
+        Navigator.pushReplacement(
+          context, 
+          MaterialPageRoute(builder: (context) => const HomeScreen())
+        );
+      } catch (e) { // kalau dia gagal submit
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Row(
+            children: [
+              const Icon(
+                Icons.info_outline, 
+                color: Colors.white,
+              ),
+              const SizedBox(width: 10),
+              Expanded(child: Text(
+                "Ups! $e",
+                style: TextStyle(
+                  
+                ),
+              ))
+            ],
+          )
+        ));
+      }
     }
   );
 }
