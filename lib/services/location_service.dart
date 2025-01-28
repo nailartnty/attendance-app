@@ -99,4 +99,3 @@ Future<bool> handleLocationPermission(BuildContext context) async {
   // ini yg positifny (else)
   return true; // dimana user sudah mengizinkan semuanya
 }
-
