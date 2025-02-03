@@ -1,10 +1,11 @@
+import 'package:attendance/services/attendance_service.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 Container buildSubmitButton(BuildContext context, Size, XFile? image, TextEditingController controllerName, String address, String status, String timeStamp) {
   return Container(
     alignment: Alignment.center,
-    margin: EdgeInsets.all(10),
+    margin: const EdgeInsets.all(10),
     child: Material(
       elevation: 3,
       borderRadius: BorderRadius.circular(20),
@@ -22,12 +23,25 @@ Container buildSubmitButton(BuildContext context, Size, XFile? image, TextEditin
             splashColor: Colors.blue,
             borderRadius: BorderRadius.circular(20),
             onTap: () {
-              if (image == null || controllerName.text.isEmpty) {
-                showSnackBar();
+              if (image == null || controllerName.text.isEmpty) { // kalau formnya kosong nampilin error
+                showSnackBar(context, "Please fill all the forms!");
               } else {
-                
+                submitAttendaceReport(
+                  context, 
+                  address, 
+                  controllerName.toString(), 
+                  status, 
+                  timeStamp
+                );
               }
             },
+            child: const Text(
+              "Submit Noww!",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold
+              ),
+            ),
           ),
         ),
       ),
@@ -40,11 +54,11 @@ void showSnackBar(BuildContext context, String message) {
     SnackBar(
       content: Row(
         children: [
-          Icon(Icons.info_outline, color: Colors.white),
-          SizedBox(width: 10),
+          const Icon(Icons.info_outline, color: Colors.white),
+          const SizedBox(width: 10),
           Text(
            message,
-           style: TextStyle(
+           style: const TextStyle(
             fontSize: 16,
             color: Colors.white
            ),
@@ -52,7 +66,7 @@ void showSnackBar(BuildContext context, String message) {
         ],
       ),
       backgroundColor: Colors.blueGrey,
-      shape: StadiumBorder(),
+      shape: const StadiumBorder(),
       behavior: SnackBarBehavior.floating,
     )
   );
