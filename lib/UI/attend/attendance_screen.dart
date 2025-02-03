@@ -1,3 +1,9 @@
+import 'package:attendance/UI/attend/components/app_bar.dart';
+import 'package:attendance/UI/attend/components/capture_photo.dart';
+import 'package:attendance/UI/attend/components/header.dart';
+import 'package:attendance/UI/attend/components/location.dart';
+import 'package:attendance/UI/attend/components/name_input.dart';
+import 'package:attendance/UI/attend/components/submit_button.dart';
 import 'package:attendance/services/location_service.dart';
 import 'package:attendance/services/timestamp_service.dart';
 import 'package:camera/camera.dart';
@@ -55,9 +61,27 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        
-      )
+      appBar: buildAppBar(context),
+      body: SingleChildScrollView(
+        child: Card(
+          color: Colors.white,
+          margin: const EdgeInsets.fromLTRB(10, 10, 10, 30),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          elevation: 5,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              buildHeader(context),
+              builtCapturePhotoSection(context, size, image),
+              buildNameInput(controllerName),
+              buildLocasionSection(isLoading, addressPlaceholder),
+              buildSubmitButton(context, size, image, controllerName, addressPlaceholder, statusPlaceholder, timeStampPlaceholder)
+            ],
+          ),
+        )
+      ),
     );
   }
 }
