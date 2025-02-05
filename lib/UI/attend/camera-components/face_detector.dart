@@ -40,7 +40,6 @@ class FaceDetectorComponent {
       if (face.trackingId != null) {
         final int? trackingId = face.trackingId;
         print("Tracking ID: $trackingId");
-
       }
     }
   }
