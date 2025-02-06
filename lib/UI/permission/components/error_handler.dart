@@ -1,6 +1,5 @@
 import 'package:attendance/UI/permission/components/snack_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 
 class ErrorHandler {
   static void handleError(BuildContext context, dynamic error) {

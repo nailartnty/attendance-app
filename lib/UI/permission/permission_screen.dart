@@ -1,6 +1,4 @@
-import 'package:attendance/services/location_service.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 
 class PermissionScreen extends StatefulWidget {
   const PermissionScreen({super.key});
@@ -12,15 +10,28 @@ class PermissionScreen extends StatefulWidget {
 class _PermissionScreenState extends State<PermissionScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-
-  void requestPermission() async {
-    final hasPermission = await handleLocationPermission(context);
-    try {
-      
-    } catch (e) {
-      
-    }
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      // appBar:  bikin methode
+      body: SingleChildScrollView(
+        child: Card(
+          color: Colors.white,
+          margin: const EdgeInsets.fromLTRB(10, 10, 10, 30),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          elevation: 5,
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // buat komponen UI untuk Header
+              // buat komponen UI untuk Form Body
+              // buat komponen UI Submit Button
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
