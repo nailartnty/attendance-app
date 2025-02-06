@@ -1,3 +1,4 @@
+import 'package:attendance/UI/permission/components/app_bar.dart';
 import 'package:flutter/material.dart';
 
 class PermissionScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _PermissionScreenState extends State<PermissionScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar:  bikin methode
+      appBar:  buildAppBar(context),
       body: SingleChildScrollView(
         child: Card(
           color: Colors.white,

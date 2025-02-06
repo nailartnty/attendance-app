@@ -8,7 +8,7 @@ AppBar buildAppBar(BuildContext context) {
       onPressed: () => Navigator.of(context).pop(), 
       icon: const Icon(Icons.arrow_back_ios)
     ),
-    title: Text(
+    title: const Text(
       "Permission Request Menu",
       style: TextStyle(
         fontSize: 18,
