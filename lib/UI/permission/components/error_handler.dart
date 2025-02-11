@@ -15,7 +15,7 @@ class ErrorHandler {
         error,
         isError: true
       );
-    Navigator.of(context).pop();
+      Navigator.of(context).pop();
     }
   }
 }

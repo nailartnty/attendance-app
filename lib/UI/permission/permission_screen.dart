@@ -39,7 +39,8 @@ class _PermissionScreenState extends State<PermissionScreen> {
                 size: size, 
                 namaController: TextEditingController(), 
                 formController: TextEditingController(), 
-                toController: TextEditingController(), dropValueCategories: "Dropdown Content", 
+                toController: TextEditingController(), 
+                dropValueCategories: "Dropdown Content", 
                 dataCollection: FirebaseFirestore.instance.collection('dataCollectionValue')
               )
             ],
