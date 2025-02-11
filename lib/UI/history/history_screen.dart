@@ -1,3 +1,5 @@
+import 'package:attendance/UI/history/components/delete_dialog.dart';
+import 'package:attendance/UI/history/components/history_card.dart';
 import 'package:attendance/services/data_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +32,27 @@ class _AttandanceHistoryScreenState extends State<AttandanceHistoryScreen> {
           return ListView.builder(
             itemCount: data.length,
             itemBuilder: (context, index) {
-              // TODO : attendance card here
+              return HistoryCard(
+                // fungsiya untuk mendefinisikan data yang akan muncul di ui berdasarkan index/posisi yang ada di db
+                data: data[index].data() as Map<String, dynamic>, 
+                onDelete: () {
+                  showDialog(
+                    context: context, 
+                    builder: (context) => DeleteDialog(
+                      // untuk menjadikan index sebagai id dari data yang ada di db
+                      documentId: data[index].id, 
+                      dataCollection: dataService.dataCollection, 
+                      // digunakan untuk memperbarui state stelah terjadi penghapusan dari db
+                      onConfirm: () { 
+                        setState(() {
+                          dataService.deleteData(data[index].id);
+                          Navigator.pop(context);
+                        });
+                       },
+                    )
+                  );
+                }
+              );
             }
           );
         }

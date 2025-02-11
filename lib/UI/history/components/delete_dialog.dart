@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class DeleteDialog extends StatelessWidget {
   final String documentId;
   final CollectionReference dataCollection;
-  const DeleteDialog({super.key, required this.documentId, required this.dataCollection});
+  const DeleteDialog({super.key, required this.documentId, required this.dataCollection, required Null Function() onConfirm});
   
   @override
   Widget build(BuildContext context) {
@@ -26,6 +26,7 @@ class DeleteDialog extends StatelessWidget {
       ),
       actions: [
         TextButton(
+          // untuk berkomunikasi dengan db untuk melakukan penghapusan data dari db
           onPressed: () {
             dataCollection.doc(documentId).delete();
             Navigator.pop(context);
