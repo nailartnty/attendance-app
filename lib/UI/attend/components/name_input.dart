@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Padding buildNameInput(TextEditingController controllerName) {
   return Padding(
-    padding: EdgeInsets.all(10),
+    padding: const EdgeInsets.all(10),
     child: TextField(
       textInputAction: TextInputAction.done,
       keyboardType: TextInputType.text,

@@ -40,7 +40,7 @@ Padding builtCapturePhotoSection(BuildContext context, Size size, XFile? image) 
                 child: FittedBox(
                   child: image != null
                   ? Image.file(File(image.path), fit: BoxFit.cover)
-                  : Icon(
+                  : const Icon(
                     Icons.camera_enhance_outlined,
                     color: Colors.blueAccent,
                   )
